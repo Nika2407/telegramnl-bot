@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: telegram-nl-bot
+    env: python
+    buildCommand: ""
+    startCommand: python my_bot.py
+    plan: free
