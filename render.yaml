@@ -2,6 +2,9 @@ services:
   - type: web
     name: telegram-nl-bot
     env: python
-    buildCommand: ""
-    startCommand: python my_bot.py
     plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python my_bot.py
+    envVars:
+      - key: BOT_TOKEN
+        value: 8078249773:AAEtvm-IuYpFNZFSZP8Nw6jkOwpZo84jSE

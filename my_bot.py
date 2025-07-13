@@ -204,4 +204,10 @@ if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler('start', start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply_message))
-    app.run_polling()
+
+    PORT = int(os.environ.get('PORT', 8443))
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        webhook_url="https://telegram-nl-bot.onrender.com"
+    )
